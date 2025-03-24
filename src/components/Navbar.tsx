@@ -75,16 +75,16 @@ const Navbar = () => {
         
         <div className="hidden md:flex items-center gap-4">
           {location.pathname.includes('/dashboard') ? (
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="gap-2 font-medium"
-              as={Link}
-              to="/"
-            >
-              <Home size={16} />
-              <span>Home</span>
-            </Button>
+            <Link to="/">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 font-medium"
+              >
+                <Home size={16} />
+                <span>Home</span>
+              </Button>
+            </Link>
           ) : (
             <>
               <Link to="/sign-in">
@@ -93,7 +93,9 @@ const Navbar = () => {
                   <span>Sign In</span>
                 </Button>
               </Link>
-              <Button as={Link} to="/sign-in" size="sm" className="font-medium">Get Started</Button>
+              <Link to="/sign-in">
+                <Button size="sm" className="font-medium">Get Started</Button>
+              </Link>
             </>
           )}
         </div>
@@ -208,16 +210,18 @@ const Navbar = () => {
               
               <div className="mt-auto flex flex-col gap-3">
                 {location.pathname.includes('/dashboard') ? (
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-center gap-2 font-medium"
-                    as={Link}
+                  <Link 
                     to="/"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Home size={16} />
-                    <span>Return Home</span>
-                  </Button>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-center gap-2 font-medium"
+                    >
+                      <Home size={16} />
+                      <span>Return Home</span>
+                    </Button>
+                  </Link>
                 ) : (
                   <>
                     <Link 
